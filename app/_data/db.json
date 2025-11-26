@@ -1,0 +1,68 @@
+{
+    "contact": [
+        {
+            "id": 1,
+            "name": "Ram Thapa",
+            "email": "ram@example.com",
+            "userId": 101
+        },
+        {
+            "id": 2,
+            "name": "Sita Gurung",
+            "email": "sita@example.com",
+            "userId": 102
+        },
+        {
+            "id": 3,
+            "name": "Bikash Karki",
+            "email": "bikash@example.com",
+            "userId": 103
+        },
+        {
+            "id": 4,
+            "name": "Anisha KC",
+            "email": "anisha@example.com",
+            "userId": 104
+        },
+        {
+            "id": 5,
+            "name": "Kamal Shrestha",
+            "email": "kamal@example.com",
+            "userId": 105
+        }
+    ],
+    
+  "users": [
+    {
+      "id": 1,
+      "name": "Hari Khadka",
+      "email": "hari@example.com",
+      "password": "password1"
+    },
+    {
+      "id": 2,
+      "name": "Laxmi Poudel",
+      "email": "laxmi@example.com",
+      "password": "password2"
+    },
+    {
+      "id": 3,
+      "name": "Niraj Shahi",
+      "email": "niraj@example.com",
+      "password": "password3"
+    },
+    {
+      "id": 4,
+      "name": "Sarita Maharjan",
+      "email": "sarita@example.com",
+      "password": "password4"
+    },
+    {
+      "id": 5,
+      "name": "Deepak Adhikari",
+      "email": "deepak@example.com",
+      "password": "password5"
+    }
+  ]
+
+}
