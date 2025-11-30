@@ -37,6 +37,7 @@ export default function LoginForm() {
       <button className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
         Login
       </button>
+      
     </form>
   );
 }
