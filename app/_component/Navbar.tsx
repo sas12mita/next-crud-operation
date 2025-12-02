@@ -3,9 +3,10 @@
 import Link from "next/link";
 
 import LogoutButton from "./Logoutbutton";
+import { getSession } from "../_lib/session";
 
 // Temporary fake session
-const session = false; // change to false to see login/register
+const session = await getSession(); // change to false to see login/register
 
 export default function Navbar() {
     return (

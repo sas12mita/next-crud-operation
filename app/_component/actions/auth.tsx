@@ -1,11 +1,10 @@
-"user server"
+
 
 import { UserType } from "@/app/_types/user";
 import axios from "axios";
-import { setSession, deleteSession} from "@/app/_lib/session";
+import { setSession, deleteSession } from "@/app/_lib/session";
 import { redirect } from "next/navigation";
-const API_URL = "http://localhost:3001";
-
+const API_URL = "http://localhost:5000";
 export const loginAction = async (formData: FormData) => {
   try {
     const response = await axios.get(
@@ -16,8 +15,9 @@ export const loginAction = async (formData: FormData) => {
 
     const user: UserType = response.data[0];
     if (!user) throw new Error("Invalid Credentials");
-    await setSession({ name: user.name, email: user.email, id: user.id });
+
     // set user in the cookies
+    await setSession({ name: user.name, email: user.email, id: user.id });
   } catch (error) {
     throw new Error("Failed to login");
   }

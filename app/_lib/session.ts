@@ -1,30 +1,26 @@
-"use server";
 
 import { cookies } from "next/headers";
+import type { UserType } from "../_types/user";
 
-const SESSION_NAME = "userSession";
-
-export async function setSession(data: { id: number; name: string; email: string }) {
-  cookies().set(SESSION_NAME, JSON.stringify(data), {
+// Set session cookie
+export const setSession = async (user: UserType) => {
+  (await cookies()).set("session", JSON.stringify(user), {
     httpOnly: true,
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 60 * 60 * 24 * 7,
     path: "/",
-    maxAge: 60 * 60 * 24 * 7, // 7 days
   });
-}
+};
 
-export function getSession() {
-  const cookie = cookies().get(SESSION_NAME);
+// Get session cookie
+export const getSession = async (): Promise<UserType | null> => {
+  const session = (await cookies()).get("session")?.value;
+  if (!session) return null;
+  const user = JSON.parse(session) as UserType;
+  return user;
+};
 
-  if (!cookie) return null;
-
-  try {
-    return JSON.parse(cookie.value);
-  } catch {
-    return null;
-  }
-}
-
-export async function deleteSession() {
-  cookies().delete(SESSION_NAME);
-}
+export const deleteSession = async () => {
+  const cookieStore = await cookies();
+  cookieStore.delete("session");
+};
