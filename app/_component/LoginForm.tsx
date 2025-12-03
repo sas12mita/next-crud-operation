@@ -16,7 +16,10 @@ export default function LoginForm() {
       formData.append("email", email);
       formData.append("password", password);
 
-      await loginAction(formData); // 🔥 CALL SERVER LOGIN ACTION
+      const user = await loginAction(formData); // login and get user
+
+      // Update client state in Navbar
+      window.location.href = "/contact"; // redirect to contact page
     } catch (err: any) {
       setError(err.message || "Invalid Credentials");
     }
